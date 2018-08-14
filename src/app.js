@@ -5,6 +5,7 @@ import Header from './components/header';
 import Main from './components/main';
 import Footer from './components/footer';
 import Popup from './components/popup';
+import Navigation from './components/navigation';
 
 const jsx = (
   <div>
@@ -12,6 +13,7 @@ const jsx = (
     <Main />
     <Footer />
     <Popup />
+    <Navigation />
   </div>
 );
 
