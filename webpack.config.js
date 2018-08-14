@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-//const RequireImageXAssetPlugin  =require('image-web-loader').RequireImageXAssetPlugin;
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -45,39 +44,10 @@ module.exports = (env) => {
           ]
         })
       },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65
-              },
-              // optipng.enabled: false will disable optipng
-              optipng: {
-                //enabled: false,
-                optimizationLevel: 7
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-
-            }
-          },
-        ],
-      }
     ]
     },
     plugins: [
       CSSExtract,
-      //new RequireImageXAssetPlugin(path.resolve('assets/images')),
       new webpack.DefinePlugin({
         'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
         'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
